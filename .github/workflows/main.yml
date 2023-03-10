@@ -30,4 +30,4 @@ jobs:
           username: chatbotv2
           password: ${{ secrets.SERVER_PASSWORD }}
           commands: |
-            touch /home/chatbotv2/aria2-deploy/test1
+             sudo docker run -d nginx`
