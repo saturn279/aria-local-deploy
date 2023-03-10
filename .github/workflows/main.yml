@@ -12,6 +12,7 @@ env:
   host: ${{ secrets.SERVER_IP }}
   username: chatbotv2
   password: ${{ secrets.SERVER_PASSWORD }}
+  dockerhub_password : ${{ secrets.DOCKERHUB_PASSWORD }}
 jobs:
   build:
     runs-on: ubuntu-latest
