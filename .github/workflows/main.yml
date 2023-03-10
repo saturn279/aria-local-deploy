@@ -28,8 +28,6 @@ jobs:
         with:
           username: sk1297
           password: sksk@2020
-      - name: Build Docker image
-        run: docker build . -t sk1297/aria-app:1.0.0
       - name: Build Docker Image
         uses: docker/build-push-action@v2
         with:
