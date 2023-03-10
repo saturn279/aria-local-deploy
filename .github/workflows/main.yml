@@ -21,7 +21,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
         
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: sk1297
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v2
           
           
       - name: Run SSH Commands
@@ -31,4 +39,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: chatbotv2
           password: ${{ secrets.SERVER_PASSWORD }}
-          ssh_1: sudo docker run -d nginx
+          ssh_1: sudo docker pull sk1297/aria-app:latest
+          ssh_2: sudo docker rm -f aria-http-server
+          ssh_3: sudo docker run --name aria-http-server -d -p 83:80 sk1297/aria-app:latest
+          
