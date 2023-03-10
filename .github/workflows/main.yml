@@ -18,15 +18,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
         
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: sk1297
-          password: sksk@2020
+
           
-      - name: Build Docker Image
-        uses: docker/build-push-action@v2
+      - name: Run SSH Commands
+        id: ssh
+        uses: arthurvanl/action-exec-ssh@v1
         with:
-          context: .
-          push: true
-          tags: sk1297/aria-app:2.0.0
+          host: ${{ secrets.SERVER_IP }}
+          username: root
+          password: ${{ secrets.SERVER_PASSWORD }}
+          commands: |
+            touch /home/chatbotv2/aria2-deploy/test1
