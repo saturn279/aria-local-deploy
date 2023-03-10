@@ -35,4 +35,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: aria-app:1.0.0
+          tags: sk1297/aria-app:1.0.0
