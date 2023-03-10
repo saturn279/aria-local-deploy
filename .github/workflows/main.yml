@@ -29,5 +29,4 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: chatbotv2
           password: ${{ secrets.SERVER_PASSWORD }}
-          commands: |
-             sudo docker run -d nginx`
+          ssh_!: sudo docker run -d nginx
